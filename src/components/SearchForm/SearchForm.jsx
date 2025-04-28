@@ -1,6 +1,7 @@
 import { FiSearch } from 'react-icons/fi';
 import styles from './SearchForm.module.css';
 
+
 const regions = [
   { id: 'africa', value: 'africa', name: 'Africa' },
   { id: 'america', value: 'america', name: 'America' },

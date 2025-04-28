@@ -10,11 +10,12 @@ import CountryInfo from '../components/CountryInfo/CountryInfo';
 
 const Country = () => {
 
-  const { countryId } = useParams();
-  const [countries, setCountries] = useState([]);
+  const [country, setCountry] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const { countryId } = useParams();
+  console.log('params', countryId);
   
   const location = useLocation();
   console.log('CountryList location', location);
@@ -26,7 +27,7 @@ const Country = () => {
       setError(null);
       try {
         const data = await fetchCountry(countryId);
-        setCountries(data);
+        setCountry(data);
       } catch (error) {
         setError(error);
       } finally {
@@ -35,7 +36,8 @@ const Country = () => {
     };
     fetchData();
   }, [countryId]);
-
+  console.log('country', Country);
+ 
 
 return (
   <Section>
@@ -43,7 +45,7 @@ return (
       <GoBackBtn path={goBack.current} />
       {isLoading && <Loader />}
       {error && <Heading title="Ooop! Something went wrong..." bottom />}
-      {countries && <CountryInfo {...countries} />}
+      {country && <CountryInfo {...country} />}
     </Container>
   </Section>
 );

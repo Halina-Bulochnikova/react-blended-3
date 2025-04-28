@@ -11,7 +11,7 @@ const CountryList = ({ countries }) => {
     <Grid>
       {countries.map(({ id, flag, country }) =>
         <GridItem key={id}>
-          <Link to={'/country/${id}'} state={{ from: location }}>
+          <Link to={`/country/${id}`} state={{ from: location }}>
             <img src={flag} alt={country} />
 
           </Link>

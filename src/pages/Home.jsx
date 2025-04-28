@@ -31,7 +31,7 @@ const Home = () => {
     <Section>
       <Container>
         {isLoading && <Loader />}
-        {error && <Heading title="Oops! Something went wrong" bottom />}
+        {error && <Heading title="Oops! Помилка домашньої сторінки" bottom />}
         {countries.length > 0 && <CountryList countries={countries} />}
       </Container>
     </Section>

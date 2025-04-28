@@ -8,6 +8,7 @@ const CountryInfo = ({
   languages = [],
   population,
 }) => {
+  
   return (
     <div className={styles.wrapper}>
       <div className={styles.flag}>

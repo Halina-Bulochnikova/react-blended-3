@@ -1,17 +1,19 @@
 import Container from '../components/Container/Container';
 import Heading from '../components/Heading/Heading';
 import Section from '../components/Section/Section';
-import fetchByRegion from '../service/countryApi';
-import { useState, useEffect, useParams } from 'react';
+import { fetchByRegion } from '../service/countryApi';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import Loader from '../components/Loader/Loader';
 import SearchForm from '../components/SearchForm/SearchForm';
-import CountryInfo from '../components/CountryInfo/CountryInfo';
+import CountryList from '../components/CountryInfo/CountryInfo';
+
 
 const SearchCountry = () => {
   const [countries, setCountries] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const { searchParams, setSearchParams } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const region = searchParams.get('region');
 
@@ -40,8 +42,8 @@ const SearchCountry = () => {
       <Container>
         <SearchForm onSubmit={handleSubmit} />
         {isLoading && <Loader />}
-        {error && <Heading title="Ooop! Something went wrong..." bottom />}
-        {countries.lengh > 0 && <CountryInfo countries={countries} />}
+        {error && <Heading title="Ooop! Пошук не задався" bottom />}
+        {countries.length > 0 && <CountryList countries={countries} />}
       </Container>
     </Section>
   );
