@@ -34,11 +34,11 @@ const SearchForm = ({ onSubmit }) => {
           Select a region
         </option>
 
-        {regions.map(({ id, value, name }) => (
+        {regions.map(({ id, value, name }) => 
           <option key={id} value={value}>
             {name}
           </option>
-        ))}
+        )}
       </select>
     </form>
   );

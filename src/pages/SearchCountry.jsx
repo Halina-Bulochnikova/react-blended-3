@@ -6,8 +6,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Loader from '../components/Loader/Loader';
 import SearchForm from '../components/SearchForm/SearchForm';
-import CountryList from '../components/CountryInfo/CountryInfo';
-
+import CountryList from '../components//CountryList/CountryList';
 
 const SearchCountry = () => {
   const [countries, setCountries] = useState([]);
@@ -16,6 +15,7 @@ const SearchCountry = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const region = searchParams.get('region');
+  console.log('region', region);
 
   useEffect(() => {
     if (!region) return;

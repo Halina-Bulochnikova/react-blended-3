@@ -17,8 +17,9 @@ const Country = () => {
   const { countryId } = useParams();
   console.log('params', countryId);
   
+  
   const location = useLocation();
-  console.log('CountryList location', location);
+  console.log('Country location', location);
   const goBack = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
